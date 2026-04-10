@@ -1,0 +1,2752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendrier Éditorial — Groupe Omnia-Cars — Jan–Juin 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --border: #e5e3de;
+    --border-light: #eeece8;
+    --text-primary: #1a1916;
+    --text-secondary: #6b6860;
+    --text-muted: #a09d97;
+    --accent-red: #c0392b;
+    --accent-orange: #e67e22;
+    --accent-blue: #2980b9;
+    --accent-green: #27ae60;
+    --accent-purple: #8e44ad;
+    --accent-teal: #16a085;
+    --tag-vn-bg: #dbeafe; --tag-vn-text: #1e40af;
+    --tag-sav-bg: #dcfce7; --tag-sav-text: #166534;
+    --tag-vo-bg: #fef9c3; --tag-vo-text: #854d0e;
+    --tag-eng-bg: #f3e8ff; --tag-eng-text: #6b21a8;
+    --tag-loc-bg: #ffe4e6; --tag-loc-text: #9f1239;
+    --tag-pro-bg: #e0f2fe; --tag-pro-text: #0c4a6e;
+    --tag-env-bg: #d1fae5; --tag-env-text: #064e3b;
+    --tag-fun-bg: #fff7ed; --tag-fun-text: #c2410c;
+    --tag-coy-bg: #fdf2f8; --tag-coy-text: #86198f;
+    --radius: 6px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 48px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .page-header-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .page-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-title .dot {
+    width: 10px; height: 10px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .page-meta {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .page-meta-item {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .page-meta-item strong { color: var(--text-primary); }
+
+  /* ── LEGEND ── */
+  .legend-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 48px;
+  }
+  .legend-bar-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .legend-label { font-size: 11px; color: var(--text-muted); margin-right: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ── MONTH SECTIONS ── */
+  .main-content { max-width: 1600px; margin: 0 auto; padding: 32px 48px 64px; }
+
+  .month-section { margin-bottom: 48px; }
+  .month-header {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-primary);
+    padding: 10px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.2px;
+  }
+  .month-header .month-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+
+  /* ── WEEK GROUPS ── */
+  .week-group {
+    border: 1px solid var(--border);
+    border-top: none;
+    background: var(--surface);
+  }
+  .week-group:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+
+  .week-header {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
+    padding: 7px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .week-header .week-num {
+    background: var(--text-primary);
+    color: white;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    background: #faf9f7;
+    border-bottom: 1px solid var(--border);
+    padding: 7px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.12s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #faf9f7; }
+  tbody tr.weekend-row { background: #fef9f5; }
+  tbody tr.weekend-row:hover { background: #fef3eb; }
+
+  td {
+    padding: 9px 12px;
+    vertical-align: top;
+    font-size: 13px;
+  }
+
+  /* ── COLUMNS ── */
+  .col-num { width: 38px; color: var(--text-muted); font-size: 11.5px; font-weight: 500; }
+  .col-date { width: 110px; white-space: nowrap; }
+  .col-reseau { width: 70px; }
+  .col-occasion { width: 200px; }
+  .col-format { width: 110px; }
+  .col-accroche { min-width: 320px; }
+  .col-objectif { width: 120px; }
+  .col-hashtags { width: 200px; }
+
+  .date-day { font-weight: 600; color: var(--text-primary); }
+  .date-info { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+  .weekend-badge {
+    display: inline-block;
+    font-size: 9px;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-top: 2px;
+  }
+
+  /* ── TAGS ── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin: 1px 2px 1px 0;
+  }
+  .tag-vn { background: var(--tag-vn-bg); color: var(--tag-vn-text); }
+  .tag-sav { background: var(--tag-sav-bg); color: var(--tag-sav-text); }
+  .tag-vo { background: var(--tag-vo-bg); color: var(--tag-vo-text); }
+  .tag-eng { background: var(--tag-eng-bg); color: var(--tag-eng-text); }
+  .tag-loc { background: var(--tag-loc-bg); color: var(--tag-loc-text); }
+  .tag-pro { background: var(--tag-pro-bg); color: var(--tag-pro-text); }
+  .tag-env { background: var(--tag-env-bg); color: var(--tag-env-text); }
+  .tag-fun { background: var(--tag-fun-bg); color: var(--tag-fun-text); }
+  .tag-coy { background: var(--tag-coy-bg); color: var(--tag-coy-text); }
+
+  .reseau-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10.5px;
+    font-weight: 600;
+    margin: 1px 0;
+  }
+  .fb { background: #dbeafe; color: #1d4ed8; }
+  .ig { background: #fce7f3; color: #9d174d; }
+  .fbig { background: #ede9fe; color: #5b21b6; }
+
+  .format-pill {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 11px;
+    background: #f1f0ed;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .accroche-text {
+    font-size: 12.5px;
+    color: var(--text-primary);
+    line-height: 1.55;
+  }
+  .accroche-italic {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 11.5px;
+    margin-top: 3px;
+    display: block;
+  }
+
+  .hashtags { font-size: 11px; color: var(--accent-blue); line-height: 1.7; }
+
+  /* ── FILTERS BAR ── */
+  .filters-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .filter-label { font-size: 11.5px; color: var(--text-muted); font-weight: 500; }
+  .filter-btn {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11.5px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { background: var(--text-primary); color: white; border-color: var(--text-primary); }
+  .filter-btn.active { background: var(--text-primary); color: white; border-color: var(--text-primary); }
+
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    min-width: 140px;
+  }
+  .stat-card-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+  .stat-card-label { font-size: 11.5px; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+
+  /* ── COYOTE HIGHLIGHT ── */
+  tr.coyote-row td { background: #fdf4ff !important; }
+  tr.coyote-row:hover td { background: #f9e8ff !important; }
+
+  /* PRINT */
+  @media print {
+    .filters-bar, .stats-row { display: none; }
+    .page-header { position: static; }
+    tbody tr:hover { background: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-title">
+      <span class="dot"></span>
+      Calendrier Éditorial — Groupe Omnia-Cars
+    </div>
+    <div class="page-meta">
+      <span class="page-meta-item">📅 <strong>Janvier → Juin 2026</strong></span>
+      <span class="page-meta-item">📱 <strong>Facebook + Instagram</strong></span>
+      <span class="page-meta-item">🗓️ <strong>26 semaines</strong></span>
+      <span class="page-meta-item">📝 <strong>~80 publications</strong></span>
+      <span class="page-meta-item">🚗 Alpine · Zeekr · Lancia · Alfa Romeo · Dacia · Renault · Opel · Citroën · DS · Leapmotor · Jeep · Peugeot · Omoda &amp; Jaecoo · GVotreAuto</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── LEGEND BAR ── -->
+<div class="legend-bar">
+  <div class="legend-bar-inner">
+    <span class="legend-label">Objectifs :</span>
+    <span class="tag tag-vn">🚗 Vente VN</span>
+    <span class="tag tag-sav">🔧 SAV</span>
+    <span class="tag tag-vo">🏷️ GVotreAuto VO</span>
+    <span class="tag tag-eng">💬 Engagement</span>
+    <span class="tag tag-loc">📍 Local</span>
+    <span class="tag tag-pro">💼 Pro / Flotte</span>
+    <span class="tag tag-env">🌿 Environnement</span>
+    <span class="tag tag-fun">💡 Fun Fact</span>
+    <span class="tag tag-coy">🛡️ Coyote</span>
+    &nbsp;&nbsp;
+    <span class="legend-label">Réseaux :</span>
+    <span class="reseau-tag fbig">FB + IG</span>
+    <span class="reseau-tag fb">FB</span>
+    <span class="reseau-tag ig">IG</span>
+    &nbsp;&nbsp;
+    <span class="legend-label">⚠️ Fond orange = post week-end (supplémentaire)</span>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main-content">
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-card-value" id="stat-posts">80</div><div class="stat-card-label">Publications planifiées</div></div>
+    <div class="stat-card"><div class="stat-card-value" id="stat-semaines">26</div><div class="stat-card-label">Semaines couvertes</div></div>
+    <div class="stat-card"><div class="stat-card-value" id="stat-coyote">6</div><div class="stat-card-label">Mentions Coyote (1/mois)</div></div>
+    <div class="stat-card"><div class="stat-card-value" id="stat-marques">14</div><div class="stat-card-label">Marques représentées</div></div>
+    <div class="stat-card"><div class="stat-card-value" id="stat-localisations">6</div><div class="stat-card-label">Localisations</div></div>
+  </div>
+
+  <!-- NOTE CONDITIONS SALON -->
+  <div style="background:#fff8f0;border:1px solid #f5cba7;border-radius:6px;padding:14px 18px;margin-bottom:28px;font-size:13px;">
+    <strong style="color:#c0392b;">📢 Conditions salon :</strong> Actives pendant le Salon de l'Auto de Bruxelles (9–18 janvier 2026) · Prolongées tout le mois de février 2026. Aucune promotion commerciale en dehors de ces périodes.
+  </div>
+
+
+<!-- ════════════════════════════════════
+     JANVIER 2026
+════════════════════════════════════ -->
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:#fee2e2;">❄️</span>
+    Janvier 2026
+  </div>
+
+  <!-- S01 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S01</span> 1 → 4 janvier · Nouvel An</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">01</td>
+          <td class="col-date"><span class="date-day">Ven 2 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">✨ Bonne année 2026 ! Toute l'équipe Groupe Omnia-Cars vous souhaite une nouvelle année sous le signe de la route, des projets et des belles rencontres. Et si 2026 était l'année de votre prochain coup de cœur automobile ? On est là pour ça.</div>
+            <span class="accroche-italic">Visuel : ambiance sobre et chaleureuse — voeux du groupe</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#BonneAnnée2026 #GroupeOmniaCars #2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S02 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S02</span> 5 → 11 janvier · Salon de l'Auto de Bruxelles (9–18 jan.)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">02</td>
+          <td class="col-date"><span class="date-day">Mar 6 janv.</span><div class="date-info">Épiphanie</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">💡 Le saviez-vous ? Les phares matriciels LED de dernière génération s'adaptent en temps réel à la circulation pour éclairer parfaitement votre route sans jamais éblouir les autres conducteurs. Une technologie désormais disponible dans plusieurs de nos gammes — demandez à nos conseillers !</div>
+            <span class="accroche-italic">Carrousel : slide 1 = question accroche / slides 2–4 = fonctionnalité illustrée</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #TechAuto #PhareMatriciel #Innovation</td>
+        </tr>
+        <tr>
+          <td class="col-num">03</td>
+          <td class="col-date"><span class="date-day">Jeu 8 janv.</span><div class="date-info">Veille salon</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Conditions salon</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎪 Le Salon de l'Auto de Bruxelles ouvre ses portes demain — et nos meilleures conditions de l'année aussi ! Pas besoin de faire la file au Palais des Expositions : retrouvez toutes les offres salon directement dans nos concessions à Binche, Mons, Tournai, Mouscron, Ath et Péruwelz. Prenez rendez-vous dès maintenant.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#SalonAuto #SalonBruxelles #ConditionsSalon #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">04</td>
+          <td class="col-date"><span class="date-day">Ven 9 janv.</span><div class="date-info">J1 salon</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV Hiver</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">❄️ L'hiver, c'est le test ultime pour vos pneus. Pression, profondeur des sculptures, état général… un contrôle rapide peut éviter bien des mauvaises surprises sur la route. Notre équipe après-vente vous reçoit pour un check-up hivernal complet. Sécurité d'abord !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#SAV #Entretien #PneusHiver #Sécurité #Hiver2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S03 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S03</span> 12 → 18 janvier · Salon en cours</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">05</td>
+          <td class="col-date"><span class="date-day">Mar 13 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Conditions salon</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎉 Le Salon de l'Auto, c'est aussi chez nous ! Nos concessions proposent en ce moment les meilleures conditions de l'année sur l'ensemble de nos gammes de véhicules neufs. Pas besoin de Bruxelles — votre futur véhicule est à deux pas. Prenez rendez-vous pour un essai et repartez au volant de votre coup de cœur !</div>
+            <span class="accroche-italic">Carrousel : 4–5 slides par gamme de finition / motorisation phare</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#ConditionsSalon #VéhiculesNeufs #OmniaCars #Belgique</td>
+        </tr>
+        <tr>
+          <td class="col-num">06</td>
+          <td class="col-date"><span class="date-day">Jeu 15 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🔍 Vous cherchez un véhicule d'occasion de confiance ? GVotreAuto, c'est notre sélection de véhicules d'occasion rigoureusement contrôlés et garantis — pour tous les budgets. La qualité du neuf, au prix de l'occasion. Découvrez notre stock en ligne ou directement dans nos points de vente.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #VéhiculeOccasion #VO #OccasionBelgique</td>
+        </tr>
+        <tr class="coyote-row">
+          <td class="col-num">07</td>
+          <td class="col-date"><span class="date-day">Ven 16 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🛡️ Verglas, brouillard, route glissante… L'hiver rend la route imprévisible. L'application Coyote vous alerte en temps réel des dangers, radars et conditions difficiles. Un réflexe de sécurité indispensable pour vos trajets quotidiens — demandez à nos équipes comment l'activer sur votre véhicule connecté.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-hashtags hashtags">#Coyote #SécuritéRoutière #ConducteHiver #ConnectedCar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S04 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S04</span> 19 → 25 janvier · Blue Monday (19 jan.)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">08</td>
+          <td class="col-date"><span class="date-day">Lun 19 janv.</span><div class="date-info">Blue Monday</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Blue Monday</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">😩 Blue Monday — le jour le plus déprimant de l'année, disent-ils. Pas chez nous ! On a exactement ce qu'il faut pour remettre le sourire : un essai gratuit, un accueil chaleureux et des conditions salon qui font vraiment la différence. Prenez rendez-vous — on s'occupe du reste ☀️</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#BlueMonday #OmniaCars #EssaiGratuit #ConditionsSalon</td>
+        </tr>
+        <tr>
+          <td class="col-num">09</td>
+          <td class="col-date"><span class="date-day">Mer 21 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">💡 5 contrôles à effectuer sur votre véhicule en janvier : éclairage complet, pression des pneus, liquide de lave-glace, état de la batterie et freins. Un check-up express chez notre SAV, c'est quelques minutes pour rouler l'esprit léger le reste de l'hiver.</div>
+            <span class="accroche-italic">Carrousel : un contrôle = une slide</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#EntretienAuto #SAV #Sécurité #CheckUp #Hiver</td>
+        </tr>
+        <tr>
+          <td class="col-num">10</td>
+          <td class="col-date"><span class="date-day">Ven 23 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-pro">💼 Pro / Particuliers</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🚐 Artisan, commerçant, indépendant — ou simplement à la recherche du véhicule polyvalent idéal pour votre quotidien ? Nos conseillers vous accompagnent dans le choix du modèle parfaitement adapté à vos usages, qu'il soit professionnel ou familial. Et les conditions salon sont toujours là !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-pro">💼 Pro / VN</span></td>
+          <td class="col-hashtags hashtags">#Professionnel #Utilitaire #FlotteAuto #VéhiculePro #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S05 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S05</span> 26 → 31 janvier · Annonce prolongation février</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">11</td>
+          <td class="col-date"><span class="date-day">Mar 27 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🧠 Le saviez-vous ? Le freinage régénératif des véhicules électriques et hybrides récupère l'énergie cinétique à chaque décélération pour la restituer sous forme d'électricité à la batterie. En ville, cela peut représenter jusqu'à 25% d'autonomie récupérée. Chaque stop vous rend de l'énergie !</div>
+            <span class="accroche-italic">Carrousel : infographie pédagogique sur le principe</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #FrenageRégénératif #Électrique #Hybride #Innovation</td>
+        </tr>
+        <tr>
+          <td class="col-num">12</td>
+          <td class="col-date"><span class="date-day">Jeu 29 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Conditions salon</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">📆 Janvier touche à sa fin — mais les conditions salon, non ! Commandez votre véhicule neuf maintenant et profitez encore des meilleures offres de l'année. Nos conseillers sont disponibles dans toutes nos concessions pour vous guider vers le modèle qui vous correspond.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#ConditionsSalon #VéhiculesNeufs #Janvier2026 #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">13</td>
+          <td class="col-date"><span class="date-day">Ven 30 janv.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Prolongation annoncée</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎁 Bonne nouvelle ! Les conditions salon se prolongent tout au long du mois de février chez Groupe Omnia-Cars. Vous avez encore le temps de profiter de ces avantages exceptionnels sur votre prochain véhicule neuf. Partagez l'info autour de vous — c'est l'opportunité de l'hiver !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#ProlongationSalon #Février2026 #OmniaCars #BonneNouvelle</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /JANVIER -->
+
+
+<!-- ════════════════════════════════════
+     FÉVRIER 2026
+════════════════════════════════════ -->
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:#fce7f3;">🎭</span>
+    Février 2026 · Conditions salon prolongées tout le mois
+  </div>
+
+  <!-- S06 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S06</span> 2 → 8 février · Chandeleur (2 fév.)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">14</td>
+          <td class="col-date"><span class="date-day">Lun 2 fév.</span><div class="date-info">Chandeleur</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Chandeleur</span> <span class="tag tag-vn">🚗 Salon prolongé</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🥞 À la Chandeleur, on retourne les crêpes… et pourquoi pas votre façon de vous déplacer ? Les conditions salon sont prolongées tout février chez Groupe Omnia-Cars ! Douceur garantie — pas seulement dans votre assiette 😄</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#Chandeleur #FévrierSalon #ConditionsProlongées #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">15</td>
+          <td class="col-date"><span class="date-day">Mer 4 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎭 Le Carnaval de Binche approche et les routes vont s'animer ! Avant de vous lancer dans les festivités, faites vérifier vos freins, essuie-glaces et batterie. Un entretien express chez notre équipe SAV, et vous êtes parés pour la fête en toute sécurité !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#Carnaval #CarnavalBinche #SAV #EntretienAuto #Sécurité</td>
+        </tr>
+        <tr>
+          <td class="col-num">16</td>
+          <td class="col-date"><span class="date-day">Ven 6 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🔎 Bonne affaire de la semaine chez GVotreAuto ! Nos véhicules d'occasion sont soigneusement sélectionnés, inspectés et garantis pour vous offrir la tranquillité d'esprit du neuf, au prix de l'occasion. Consultez notre stock ou passez directement en concession.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #VéhiculeOccasion #BonneAffaire #VO</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S07 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S07</span> 9 → 15 février · Saint-Valentin (14 fév.) · Carnaval de Binche en approche</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">17</td>
+          <td class="col-date"><span class="date-day">Mar 10 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-loc">📍 Carnaval de Binche</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎭 À une semaine du plus beau carnaval du monde, Binche se prépare à vibrer au rythme des tambours ! Pour profiter pleinement de cette fête classée au Patrimoine immatériel de l'UNESCO, pensez à organiser vos déplacements. Que vous veniez de Mons, Tournai, Ath ou Péruwelz — préparez votre itinéraire !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-loc">📍 Local</span></td>
+          <td class="col-hashtags hashtags">#CarnavalBinche #Binche #UNESCO #BelgiqueÉvénement #Gilles</td>
+        </tr>
+        <tr>
+          <td class="col-num">18</td>
+          <td class="col-date"><span class="date-day">Jeu 12 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Saint-Valentin</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">❤️ Saint-Valentin dans 2 jours ! Et si le plus original des cadeaux, c'était un essai en amoureux d'un nouveau véhicule ? Aucune obligation d'achat, juste le plaisir de découvrir ensemble votre futur coup de cœur sur 4 roues. On vous accueille avec le sourire !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#SaintValentin #Valentin2026 #EssaiGratuit #CoupDeCoeur</td>
+        </tr>
+        <tr class="weekend-row">
+          <td class="col-num">19</td>
+          <td class="col-date"><span class="date-day">Sam 14 fév.</span><div class="date-info">Saint-Valentin</div><span class="weekend-badge">📅 week-end</span></td>
+          <td class="col-reseau"><span class="reseau-tag ig">IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Saint-Valentin</span></td>
+          <td class="col-format"><span class="format-pill">Story / Reel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">❤️ Bonne Saint-Valentin ! Parce que les plus beaux trajets sont ceux partagés avec les personnes qu'on aime. De la part de toute l'équipe Groupe Omnia-Cars 🚗💕</div>
+            <span class="accroche-italic">Post supplémentaire week-end — format léger, ambiance émotionnelle</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#SaintValentin #ValentinesDay #OmniaCars #AmourSurRoute</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S08 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S08</span> 16 → 22 février · Carnaval de Binche (15–17 fév.) · Mardi Gras (17 fév.) · Vacances de Carnaval</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">20</td>
+          <td class="col-date"><span class="date-day">Lun 16 fév.</span><div class="date-info">Dimanche soir/Lundi</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-loc">📍 Carnaval de Binche</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🥁 Roulements de tambours, oranges, costume de Gille… Le Carnaval de Binche bat son plein ! Cette tradition unique au monde rassemble des milliers de personnes dans nos rues. Une fierté pour toute notre région. Profitez de cette fête exceptionnelle en toute sécurité — et à bientôt dans nos concessions !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-loc">📍 Local / Engagement</span></td>
+          <td class="col-hashtags hashtags">#CarnavalBinche #Gilles #BelgiquePatrimoine #Binche2026</td>
+        </tr>
+        <tr class="weekend-row">
+          <td class="col-num">21</td>
+          <td class="col-date"><span class="date-day">Mar 17 fév.</span><div class="date-info">Mardi Gras</div><span class="weekend-badge">🎉 événement</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-loc">📍 Mardi Gras — Binche</span></td>
+          <td class="col-format"><span class="format-pill">Reel / Story</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎭 VIVE LES GILLES ! Mardi Gras, le clou du Carnaval de Binche ! Une journée hors du temps que nous partageons avec tous nos amis de la région. Post supplémentaire en hommage à cette fête incomparable. Joyeux carnaval à toutes et tous ! 🍊🥁</div>
+            <span class="accroche-italic">Post événement exceptionnel — format dynamique, ambiance festive</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-loc">📍 Local / Notoriété</span></td>
+          <td class="col-hashtags hashtags">#MardiGras #Gilles #CarnavalBinche #UNESCO #Binche</td>
+        </tr>
+        <tr>
+          <td class="col-num">22</td>
+          <td class="col-date"><span class="date-day">Jeu 19 fév.</span><div class="date-info">Vacances carnaval</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Vacances</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🗺️ Les vacances de carnaval, c'est parti ! L'occasion parfaite de venir tester votre futur véhicule en famille. Essais disponibles dans toutes nos concessions cette semaine — sans rendez-vous, ou sur réservation. Les conditions salon sont toujours là pour vous !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#VacancesCarnaval #EssaiGratuit #ConditionsSalon #OmniaCars</td>
+        </tr>
+        <tr class="coyote-row">
+          <td class="col-num">23</td>
+          <td class="col-date"><span class="date-day">Ven 20 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🛡️ En vacances de carnaval, les routes belges et les axes vers les stations de ski s'animent. L'application Coyote vous prévient des bouchons, des radars et des dangers en temps réel. Votre meilleur copilote pour des déplacements sereins. Bon voyage !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-hashtags hashtags">#Coyote #Vacances #SécuritéRoute #NavigationIntelligente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S09 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S09</span> 23 → 28 février · Fin des conditions prolongées</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">24</td>
+          <td class="col-date"><span class="date-day">Mar 24 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Rappel conditions</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">⏳ Plus qu'une semaine ! Les conditions salon prolongées se terminent fin février. Si vous hésitez encore entre plusieurs modèles, c'est le moment de prendre rendez-vous pour un dernier essai comparatif. Nos équipes vous guident sans pression vers le meilleur choix pour vous.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#DernierChance #ConditionsSalon #OmniaCars #Février</td>
+        </tr>
+        <tr>
+          <td class="col-num">25</td>
+          <td class="col-date"><span class="date-day">Jeu 26 fév.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">👁️ Le saviez-vous ? Certains de nos véhicules intègrent un système de vision nocturne capable de détecter piétons et animaux jusqu'à 130 mètres dans l'obscurité totale, bien au-delà de la portée des phares. Une technologie qui pouvait sembler réservée aux voitures de luxe — et qui est désormais accessible.</div>
+            <span class="accroche-italic">Carrousel explicatif : comment ça fonctionne</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #VisionNocturne #TechnoAuto #Innovation #Sécurité</td>
+        </tr>
+        <tr>
+          <td class="col-num">26</td>
+          <td class="col-date"><span class="date-day">Sam 28 fév.</span><div class="date-info">Dernier jour conditions</div><span class="weekend-badge">⏰ dernier jour</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV Printemps</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌱 Février se termine, le printemps approche. C'est aussi le bon moment de penser à passer vos pneus hiver aux pneus été avant la hausse des demandes en mars ! Prenez rendez-vous dès maintenant dans notre SAV — les créneaux partent vite à l'approche du printemps.</div>
+            <span class="accroche-italic">Post supplémentaire — fin de mois + anticipation SAV printanier</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#SAV #PneusÉté #Printemps #EntretienAuto #Anticipation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /FÉVRIER -->
+
+
+<!-- ════════════════════════════════════
+     MARS 2026
+════════════════════════════════════ -->
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:#d1fae5;">🌱</span>
+    Mars 2026 · Changement de saison (20 mars) · Changement d'heure (29 mars)
+  </div>
+
+  <!-- S10 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S10</span> 2 → 8 mars · Journée de la Femme (8 mars)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">27</td>
+          <td class="col-date"><span class="date-day">Mar 3 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Nouveautés</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🚀 Mars est là ! 2026 s'annonce riche en nouveautés dans nos gammes : nouvelles motorisations, designs affirmés, technologies embarquées toujours plus intuitives. Passez en concession ou prenez rendez-vous pour une présentation personnalisée — nos conseillers ont hâte de vous faire découvrir les dernières arrivées.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#Nouveautés2026 #VéhiculesNeufs #OmniaCars #Auto2026</td>
+        </tr>
+        <tr>
+          <td class="col-num">28</td>
+          <td class="col-date"><span class="date-day">Jeu 5 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV Printemps</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🔧 Révision de printemps : les 5 points à ne pas négliger. Liquide de refroidissement, filtre à air, courroie de distribution, essuie-glaces et état des freins — un contrôle complet chez notre équipe SAV, et vous voilà parés pour la belle saison. Prenez rendez-vous en ligne ou par téléphone.</div>
+            <span class="accroche-italic">Carrousel : 1 point = 1 slide avec icône et explication courte</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#RévisionPrintemps #SAV #EntretienAuto #Sécurité #Printemps2026</td>
+        </tr>
+        <tr class="weekend-row">
+          <td class="col-num">29</td>
+          <td class="col-date"><span class="date-day">Dim 8 mars</span><div class="date-info">J. Internationale Femme</div><span class="weekend-badge">📅 week-end</span></td>
+          <td class="col-reseau"><span class="reseau-tag ig">IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 8 mars</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌷 En ce 8 mars, on célèbre toutes celles qui choisissent leur véhicule avec passion, pragmatisme et caractère. Bonne Journée Internationale des Droits de la Femme — de la part de toute l'équipe Groupe Omnia-Cars ! 💪</div>
+            <span class="accroche-italic">Post supplémentaire week-end — ton sincère et inclusif</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#8Mars #JournéeFemme #IWD2026 #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S11 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S11</span> 9 → 15 mars</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">30</td>
+          <td class="col-date"><span class="date-day">Mar 10 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🔬 Le saviez-vous ? Le pare-brise contribue jusqu'à 30% de la rigidité structurelle d'une voiture moderne. Un impact, même minime — caillou, fissure — mérite d'être évalué rapidement. Votre SAV peut intervenir avant qu'une petite fissure ne devienne un remplacement complet… et beaucoup plus coûteux !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span> <span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#FunFact #Pare-Brise #SAV #Sécurité #EntretienAuto</td>
+        </tr>
+        <tr>
+          <td class="col-num">31</td>
+          <td class="col-date"><span class="date-day">Jeu 12 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Essai</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌤️ Le printemps s'annonce — et avec lui, l'envie de prendre la route dans un nouveau véhicule. C'est le moment idéal pour planifier votre essai gratuit chez Groupe Omnia-Cars. Nos conseillers vous accueillent dans vos concessions de Binche, Mons, Tournai, Mouscron, Ath et Péruwelz. Prenez rendez-vous !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#EssaiGratuit #VéhiculesNeufs #Printemps #OmniaCars #Belgique</td>
+        </tr>
+        <tr class="coyote-row">
+          <td class="col-num">32</td>
+          <td class="col-date"><span class="date-day">Ven 13 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌷 Le printemps ramène le monde sur les routes — et avec lui, la reprise des travaux, des zones de chantier et des bouchons. L'application Coyote vous informe en temps réel pour anticiper et choisir le meilleur itinéraire. Un allié indispensable pour tous vos trajets du quotidien.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-hashtags hashtags">#Coyote #GPS #NavigationIntelligente #Bouchons #Printemps</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S12 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S12</span> 16 → 22 mars · Saint-Patrick (17 mars) · Printemps (20 mars)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">33</td>
+          <td class="col-date"><span class="date-day">Mar 17 mars</span><div class="date-info">Saint-Patrick</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Saint-Patrick</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">☘️ Pas besoin d'aller jusqu'en Irlande pour trouver la chance ! Chez Groupe Omnia-Cars, nos conseillers vous aident à dénicher LE véhicule qui vous porte bonheur. Happy St. Patrick's Day ! 🍀</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#SaintPatrick #StPatricksDay #Chance #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">34</td>
+          <td class="col-date"><span class="date-day">Jeu 19 mars</span><div class="date-info">Veille printemps</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 Changement pneus</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌡️ Demain, le printemps est officiel ! Et avec lui, l'obligation légale de passer aux pneus été dès que les températures restent au-dessus de 7°C. Notre SAV assure le montage, l'équilibrage et la mise en stockage de vos pneus hiver — en un seul rendez-vous. On vous attend !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#PneusÉté #Printemps #SAV #Sécurité #ChangementPneus</td>
+        </tr>
+        <tr>
+          <td class="col-num">35</td>
+          <td class="col-date"><span class="date-day">Ven 20 mars</span><div class="date-info">Printemps !</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Changement de saison</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌸 Bienvenue au printemps ! La belle saison s'installe, les routes reprennent des couleurs — et c'est le moment idéal pour donner un coup de fraîcheur à votre véhicule. Nettoyage, entretien, changement de pneus… notre équipe SAV est prête à accueillir votre auto pour qu'elle brille de mille feux !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span> <span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#Printemps #Printemps2026 #NouvellesSaisons #SAV #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S13 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S13</span> 23 → 29 mars · Changement d'heure (nuit du 28–29 mars)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">36</td>
+          <td class="col-date"><span class="date-day">Mar 24 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌱 Printemps rime avec renouveau — et si c'était le moment de renouveler votre véhicule ? Chez GVotreAuto, notre sélection de véhicules d'occasion est soigneusement contrôlée pour vous offrir qualité et tranquillité d'esprit. Découvrez notre stock dans nos concessions ou en ligne.</div>
+            <span class="accroche-italic">Carrousel : 3–4 modèles mis en avant</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #Occasion #VO #Printemps #BonneAffaire</td>
+        </tr>
+        <tr>
+          <td class="col-num">37</td>
+          <td class="col-date"><span class="date-day">Jeu 26 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-pro">💼 Pro / Particuliers</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">📦 Indépendant, artisan ou simplement à la recherche d'un véhicule polyvalent qui gère autant les trajets professionnels que les week-ends en famille ? Nos gammes couvrent tous les besoins — véhicules utilitaires, breaks et SUV spacieux. Nos conseillers calculent avec vous le coût total de possession réel. On en parle ?</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-pro">💼 Pro / VN</span></td>
+          <td class="col-hashtags hashtags">#VéhiculePro #Utilitaire #Polyvalent #FlotteAuto #OmniaCars</td>
+        </tr>
+        <tr class="weekend-row">
+          <td class="col-num">38</td>
+          <td class="col-date"><span class="date-day">Dim 29 mars</span><div class="date-info">Changement d'heure</div><span class="weekend-badge">⏰ week-end</span></td>
+          <td class="col-reseau"><span class="reseau-tag ig">IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Changement d'heure</span></td>
+          <td class="col-format"><span class="format-pill">Story</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">⏰ Ce soir, on avance les montres d'une heure ! Un conseil de nos techniciens : profitez-en pour penser à la date de votre prochaine révision. Et bonne nouvelle — sur nos véhicules connectés, l'horloge se met à jour toute seule 😉</div>
+            <span class="accroche-italic">Post supplémentaire week-end — format court, ton léger</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#ChangementHeure #HeureDÉté #Voiture #OmniaCars #ConnectedCar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /MARS -->
+
+
+<!-- ════════════════════════════════════
+     AVRIL 2026
+════════════════════════════════════ -->
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:#fef9c3;">🐣</span>
+    Avril 2026 · Pâques (5 avril) · Journée de la Terre (22 avril)
+  </div>
+
+  <!-- S14 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S14</span> 30 mars → 5 avril · Poisson d'Avril (1er avr.) · Pâques (5 avr.)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">39</td>
+          <td class="col-date"><span class="date-day">Mar 31 mars</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Pâques en approche</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🐣 Pâques approche — et chez Groupe Omnia-Cars, les bonnes surprises ne se cachent pas que dans les jardins ! Passez en concession cette semaine pour découvrir nos dernières arrivées et planifier votre prochain essai avant le week-end pascal.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#Pâques #PâquesAuto #EssaiGratuit #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">40</td>
+          <td class="col-date"><span class="date-day">Mer 1er avr.</span><div class="date-info">Poisson d'Avril 🐟</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Poisson d'Avril</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🐟 Poisson d'Avril ! Et si on vous disait qu'on offre un véhicule aujourd'hui ? … Bon, on plaisante — un peu. Par contre, nos offres de printemps sont, elles, totalement réelles. Venez vérifier par vous-même 😄</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#PoissonDAvril #1erAvril #Humour #OmniaCars #SpringDeals</td>
+        </tr>
+        <tr>
+          <td class="col-num">41</td>
+          <td class="col-date"><span class="date-day">Jeu 2 avr.</span><div class="date-info">Vacances Pâques</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🚗 Long week-end de Pâques en famille ? Avant de prendre la route, pensez au check-up de base : pression des pneus, niveau d'huile, éclairage et lave-glace. Notre service après-vente vous reçoit sans rendez-vous pour un contrôle express. Partez sereinement !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#VacancesPâques #Sécurité #SAV #CheckUp #AvantDePartir</td>
+        </tr>
+        <tr class="weekend-row">
+          <td class="col-num">42</td>
+          <td class="col-date"><span class="date-day">Dim 5 avr.</span><div class="date-info">Pâques 🐣</div><span class="weekend-badge">📅 week-end</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Pâques</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🐣 Joyeuses Pâques à toutes et tous ! Profitez de ce beau week-end en famille — de la part de toute l'équipe Groupe Omnia-Cars 🌸</div>
+            <span class="accroche-italic">Post supplémentaire week-end — court et chaleureux</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#JoyeusesPâques #Pâques2026 #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S15 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S15</span> 6 → 12 avril · Post-Pâques</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">43</td>
+          <td class="col-date"><span class="date-day">Mar 7 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Printemps</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌞 Le printemps est bien là ! Envie d'air frais au volant d'un modèle qui vous ressemble ? Nos gammes combinent style, technologie et confort pour faire de chaque trajet un plaisir. Essai gratuit toujours disponible — la route vous attend !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#Printemps #VéhiculesNeufs #EssaiGratuit #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">44</td>
+          <td class="col-date"><span class="date-day">Jeu 9 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🚗 Le saviez-vous ? Le régulateur de vitesse adaptatif (ACC) maintient automatiquement la distance de sécurité avec le véhicule qui vous précède, en accélérant ou freinant sans intervention de votre part. Sur autoroute, c'est un gain de confort et de sécurité considérable — disponible sur de nombreux modèles de nos gammes !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #RégulateurAdaptatif #ACC #TechAuto #Sécurité</td>
+        </tr>
+        <tr>
+          <td class="col-num">45</td>
+          <td class="col-date"><span class="date-day">Ven 10 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🔍 Chez GVotreAuto, chaque véhicule d'occasion passe entre les mains de nos techniciens avant d'être proposé à la vente. Contrôle multipoints, historique vérifié, garantie incluse. La qualité du neuf, le prix de l'occasion — c'est notre promesse.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #OccasionGarantie #VO #QualitéOccasion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S16 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S16</span> 13 → 19 avril</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">46</td>
+          <td class="col-date"><span class="date-day">Mar 14 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV Été</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">☀️ Avec les beaux jours qui s'installent, les trajets s'allongent. C'est le bon moment de préparer votre voiture pour l'été : révision de la climatisation, fluides, freins, filtre d'habitacle… Un seul rendez-vous chez notre SAV, et vous avez l'esprit libre pour la belle saison !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#SAV #PréparationÉté #Climatisation #EntretienAuto #Été2026</td>
+        </tr>
+        <tr>
+          <td class="col-num">47</td>
+          <td class="col-date"><span class="date-day">Jeu 16 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Road trip</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🗺️ Road trip de printemps en vue ? Nos véhicules équipés des dernières aides à la conduite — caméras de recul, alerte de sortie de voie, reconnaissance des panneaux — rendent chaque long trajet plus serein et agréable. Découvrez votre futur compagnon de route chez nous !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#RoadTrip #Printemps #AideCadence #VéhiculesNeufs #OmniaCars</td>
+        </tr>
+        <tr class="coyote-row">
+          <td class="col-num">48</td>
+          <td class="col-date"><span class="date-day">Ven 17 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🛡️ Road trip printanier, escapades de week-end, trajets en famille… L'application Coyote vous guide et vous alerte en temps réel : radars, bouchons, accidents, travaux. Le bon compagnon pour savourer la route l'esprit tranquille. Vous l'avez déjà à bord ?</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-hashtags hashtags">#Coyote #SécuritéRoute #RoadTrip #NavigationGPS #Printemps</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S17 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S17</span> 20 → 26 avril · Journée de la Terre (22 avr.)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">49</td>
+          <td class="col-date"><span class="date-day">Mar 21 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-env">🌿 Mobilité durable</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">⚡ La mobilité de demain, c'est aujourd'hui ! Nos véhicules électriques et hybrides allient plaisir de conduite, économies de carburant et respect de l'environnement. Autonomies en hausse, temps de recharge en baisse, technologie en avance — venez découvrir ce que le moteur propre a de concret à vous offrir.</div>
+            <span class="accroche-italic">Carrousel : comparatif motorisations thermique / hybride / électrique</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 VN</span> <span class="tag tag-env">🌿 Env.</span></td>
+          <td class="col-hashtags hashtags">#Électrique #Hybride #MobilitéDurable #EV #VéhiculePropre</td>
+        </tr>
+        <tr>
+          <td class="col-num">50</td>
+          <td class="col-date"><span class="date-day">Mer 22 avr.</span><div class="date-info">Journée de la Terre 🌍</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-env">🌿 Earth Day</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌍 Journée de la Terre — chaque geste compte. Chez Groupe Omnia-Cars, nos gammes électriques, hybrides et à faibles émissions participent à un avenir de mobilité plus responsable. Ce n'est pas seulement une tendance — c'est une direction que nous prenons ensemble.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-env">🌿 Environnement</span></td>
+          <td class="col-hashtags hashtags">#EarthDay #JournéeTerre #MobilitéVerte #EV #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">51</td>
+          <td class="col-date"><span class="date-day">Ven 24 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🧠 Le saviez-vous ? Un véhicule 100% électrique nécessite en moyenne 40% moins d'entretien qu'un modèle thermique équivalent — pas de vidange d'huile moteur, moins de pièces d'usure, freins préservés grâce au freinage régénératif. Moins de passages au garage, plus d'économies sur la durée !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #Électrique #EntretienEV #Économies #Innovation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S18 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S18</span> 27 avril → 3 mai · Fête du Travail (1er mai)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">52</td>
+          <td class="col-date"><span class="date-day">Mar 28 avr.</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-pro">💼 Pro / Particuliers</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">💼 Vous utilisez votre véhicule pour le travail — ou simplement pour tout ? Un véhicule bien choisi, c'est un investissement rentable sur le long terme. Nos conseillers vous accompagnent dans l'analyse du coût total de possession (TCO) pour trouver le modèle le plus adapté à votre usage réel.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-pro">💼 Pro / VN</span></td>
+          <td class="col-hashtags hashtags">#TCO #CoutPossession #VéhiculePro #FlotteAuto #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">53</td>
+          <td class="col-date"><span class="date-day">Jeu 30 avr.</span><div class="date-info">Veille 1er mai</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Fête du Travail</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌷 Demain, c'est le 1er mai ! Nos équipes profitent de ce week-end prolongé bien mérité. On vous retrouve dès lundi, reposés et motivés pour vous accueillir. Bon week-end à toutes et tous !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#1erMai #FêteDuTravail #WeekEndProlongé #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /AVRIL -->
+
+
+<!-- ════════════════════════════════════
+     MAI 2026
+════════════════════════════════════ -->
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:#d1fae5;">🌞</span>
+    Mai 2026 · Ascension (14 mai) · Pentecôte (24 mai) · Doudou de Mons &amp; Fête des Mères (31 mai)
+  </div>
+
+  <!-- S19 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S19</span> 4 → 10 mai · Victoire 1945 (8 mai)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">54</td>
+          <td class="col-date"><span class="date-day">Mar 5 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 Climatisation</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌡️ Les premières chaleurs arrivent — et votre climatisation, elle est prête ? Un circuit clim non rechargé consomme plus et refroidit moins bien. Notre équipe SAV recharge votre climatisation rapidement. Anticipez avant les grosses chaleurs et le rush de juin !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#Climatisation #SAV #Été #EntretienAuto #ConfortBord</td>
+        </tr>
+        <tr>
+          <td class="col-num">55</td>
+          <td class="col-date"><span class="date-day">Jeu 7 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">📱 Le saviez-vous ? Le Head-Up Display (HUD) projette la vitesse, la navigation et les alertes directement sur votre pare-brise, à hauteur de regard. Résultat : vos yeux ne quittent jamais la route. Une technologie qui améliore à la fois le confort et la sécurité — disponible sur plusieurs de nos modèles !</div>
+            <span class="accroche-italic">Carrousel : illustration du HUD en conditions réelles</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #HUD #HeadUpDisplay #Sécurité #TechAuto</td>
+        </tr>
+        <tr>
+          <td class="col-num">56</td>
+          <td class="col-date"><span class="date-day">Ven 8 mai</span><div class="date-info">Victoire 1945</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Commémoration</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🕊️ En ce 8 mai, nous nous souvenons. Bonne journée de commémoration à toutes et tous. Nos équipes seront de retour lundi pour vous accueillir.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#8Mai #Victoire1945 #Commémoration #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S20 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S20</span> 11 → 17 mai · Ascension (14 mai)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">57</td>
+          <td class="col-date"><span class="date-day">Mar 12 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🚗 Long week-end de l'Ascension qui approche ! C'est aussi un bon moment pour faire le point sur votre véhicule actuel. Envie de changer ? Chez GVotreAuto, nos véhicules d'occasion sont disponibles à la visite et à l'essai, dans nos concessions de la région.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #Occasion #VO #Ascension #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">58</td>
+          <td class="col-date"><span class="date-day">Jeu 14 mai</span><div class="date-info">Ascension 🕊️</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🛣️ Long week-end de l'Ascension — c'est le début des grandes escapades ! Avant de prendre la route, un contrôle rapide s'impose : pression des pneus, niveau d'huile, liquide de frein. Notre SAV est ouvert ce matin pour un check-up express. Partez l'esprit léger !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#Ascension #WeekEndProlongé #SAV #CheckUp #Sécurité</td>
+        </tr>
+        <tr class="coyote-row">
+          <td class="col-num">59</td>
+          <td class="col-date"><span class="date-day">Ven 15 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🛡️ Week-end de l'Ascension : les routes belges et frontalières vont être chargées ce soir ! Avec l'application Coyote, anticipez les bouchons et trouvez le meilleur itinéraire en temps réel. Votre copilote numéro 1 pour les week-ends prolongés — l'avez-vous activé ?</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-hashtags hashtags">#Coyote #Ascension #Routes #SécuritéRoutière #WeekEnd</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S21 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S21</span> 18 → 24 mai · Pentecôte (24–25 mai)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">60</td>
+          <td class="col-date"><span class="date-day">Mar 19 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Véhicules neufs</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌞 L'été approche à grands pas ! Vous avez craqué pour un modèle mais il vous manque ce petit quelque chose pour vous décider ? Nos conseillers sont là pour répondre à toutes vos questions — financement, motorisation, équipements — sans engagement. Un essai suffit souvent à lever les derniers doutes !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#VéhiculesNeufs #EssaiGratuit #Été2026 #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">61</td>
+          <td class="col-date"><span class="date-day">Jeu 21 mai</span><div class="date-info">Veille Pentecôte</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Pentecôte</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌼 Encore un long week-end en perspective ! Profitez de la Pentecôte pour vous retrouver en famille ou partir à la découverte de notre belle région. Bonne Pentecôte à tous — on se retrouve mardi ! 🚗</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#Pentecôte #WeekEndProlongé #BelgiqueRoute #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">62</td>
+          <td class="col-date"><span class="date-day">Ven 22 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 SAV / Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">💡 Avant de partir en week-end de Pentecôte : vérifiez le gonflage de vos pneus ! Pour chaque bar de pression manquant, la consommation de carburant augmente de 3% environ. Un geste simple, rapide et économique — notre SAV peut le faire en 5 minutes !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span> <span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#Pneus #Pression #Économie #SAV #FunFact #Sécurité</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S22 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S22</span> 25 → 31 mai · Doudou de Mons (31 mai) · Fête des Mères (31 mai)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">63</td>
+          <td class="col-date"><span class="date-day">Mar 26 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-loc">📍 Doudou de Mons</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🐉 À quelques jours du Doudou ! La Ducasse de Mons et le combat du Lumeçon rassemblent chaque année des milliers de visiteurs dans notre région. Un événement unique, classé au Patrimoine immatériel mondial de l'UNESCO — et une fierté pour tous les Montois ! Préparez vos déplacements 😊</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-loc">📍 Local / Engagement</span></td>
+          <td class="col-hashtags hashtags">#Doudou #DoudouMons #DucasseMons #Lumeçon #UNESCO #Mons</td>
+        </tr>
+        <tr>
+          <td class="col-num">64</td>
+          <td class="col-date"><span class="date-day">Jeu 28 mai</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Fête des Mères</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌸 Dimanche, c'est la Fête des Mères ! Et si le plus beau cadeau, c'était un moment partagé en famille — autour d'un essai surprise d'un nouveau véhicule ? Ou tout simplement, prenez soin d'elles. Bonne fête à toutes les mamans de la région ! 💐</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span> <span class="tag tag-vn">🚗 VN</span></td>
+          <td class="col-hashtags hashtags">#FêteMères #MamansAuto #Famille #OmniaCars #CadaauMère</td>
+        </tr>
+        <tr class="weekend-row">
+          <td class="col-num">65</td>
+          <td class="col-date"><span class="date-day">Dim 31 mai</span><div class="date-info">Doudou + Fête des Mères</div><span class="weekend-badge">🎉 double événement</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-loc">📍 Doudou</span> <span class="tag tag-eng">💬 Fête des Mères</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🐉🌸 Double fête ce dimanche ! Bonne Ducasse de Mons à tous les Montois et amoureux de la région — et bonne Fête des Mères à toutes les mamans ! Deux raisons de célébrer, une seule équipe pour vous souhaiter une belle journée. De la part de tout le Groupe Omnia-Cars ❤️</div>
+            <span class="accroche-italic">Post supplémentaire week-end — moment local et émotionnel fort</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-loc">📍 Local</span> <span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#Doudou #FêteMères #Mons #Binche #Belgique #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /MAI -->
+
+
+<!-- ════════════════════════════════════
+     JUIN 2026
+════════════════════════════════════ -->
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:#fef9c3;">☀️</span>
+    Juin 2026 · J. Env. (5 juin) · Fête des Pères (14 juin) · Fête de la Musique + Été (21 juin) · Départs vacances
+  </div>
+
+  <!-- S23 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S23</span> 1 → 7 juin · Journée mondiale de l'environnement (5 juin)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">66</td>
+          <td class="col-date"><span class="date-day">Mar 2 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 Préparation été</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🏖️ Les grandes vacances approchent — et votre véhicule est-il prêt ? Vidange, filtres, climatisation, freins, courroie de distribution, pneus… Notre check-up pré-vacances couvre tous les points essentiels. Prenez rendez-vous maintenant avant le rush de juillet — les créneaux partent vite !</div>
+            <span class="accroche-italic">Carrousel : checklist pré-départ visuelle</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#PréparationÉté #SAV #Vacances2026 #CheckListAuto #EntretienAuto</td>
+        </tr>
+        <tr>
+          <td class="col-num">67</td>
+          <td class="col-date"><span class="date-day">Jeu 4 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌊 L'été, c'est fait pour voyager ! Vous avez besoin d'un véhicule fiable pour les grandes vacances ? Trouvez votre compagnon de route idéal chez GVotreAuto — des modèles vérifiés et garantis pour partir l'esprit serein, sans mauvaise surprise sur la route.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #Occasion #Vacances #RoadTrip #VéhiculeGaranties</td>
+        </tr>
+        <tr>
+          <td class="col-num">68</td>
+          <td class="col-date"><span class="date-day">Ven 5 juin</span><div class="date-info">J. Environnement 🌍</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-env">🌿 Environnement</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌍 Journée mondiale de l'environnement — rouler propre, c'est possible ! Nos véhicules électriques et hybrides vous permettent de réduire votre empreinte carbone au quotidien, sans compromis sur le plaisir de conduire ni sur la praticité. Chaque kilomètre parcouru proprement compte.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-env">🌿 Environnement</span></td>
+          <td class="col-hashtags hashtags">#JournéeEnvironnement #WorldEnvironmentDay #VéhiculePropre #EV #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S24 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S24</span> 8 → 14 juin · Fête des Pères (14 juin)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">69</td>
+          <td class="col-date"><span class="date-day">Mar 9 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🏎️ Le saviez-vous ? Certains véhicules modernes disposent d'un système de surveillance des angles morts capable de détecter les cyclistes et motards lors des changements de voie — même dans des conditions de mauvaise visibilité. Une technologie qui sauve des vies, discrètement mais efficacement.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-fun">💡 Fun Fact</span></td>
+          <td class="col-hashtags hashtags">#FunFact #AngleMort #Sécurité #ADAS #TechAuto #Innovation</td>
+        </tr>
+        <tr>
+          <td class="col-num">70</td>
+          <td class="col-date"><span class="date-day">Jeu 11 juin</span><div class="date-info">Fête des Pères J-3</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Fête des Pères</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">👨 Dimanche, c'est la Fête des Pères ! Et si vous lui offriez ce qu'il attend vraiment ? Un essai surprise d'un modèle qui l'a fait rêver, un moment en famille autour de sa passion auto… Nos concessions sont ouvertes ce week-end pour les curieux et les amoureux de belles voitures 🚗</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 VN</span> <span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#FêtePères #PapaAuto #CadeauFête #EssaiGratuit #OmniaCars</td>
+        </tr>
+        <tr class="coyote-row">
+          <td class="col-num">71</td>
+          <td class="col-date"><span class="date-day">Ven 12 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🛡️ L'été arrive — et avec lui, les grands départs. L'application Coyote est l'indispensable de vos trajets estivaux : alertes radars, bouchons en temps réel, points de danger signalés par la communauté. Ne prenez pas la route sans elle cet été !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-coy">🛡️ Coyote</span></td>
+          <td class="col-hashtags hashtags">#Coyote #Été #Vacances #SécuritéRoute #Autoroute #GPS</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S25 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S25</span> 15 → 21 juin · Fête de la Musique + Été (21 juin)</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">72</td>
+          <td class="col-date"><span class="date-day">Mar 16 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vn">🚗 Été</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌅 L'été arrive à grands pas ! Avez-vous déjà planifié votre prochain véhicule pour les grandes vacances ? Nos équipes vous accueillent pour trouver le modèle qui correspond à votre vie — famille, évasion, quotidien ou grands trajets. On a ce qu'il vous faut.</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vn">🚗 Vente VN</span></td>
+          <td class="col-hashtags hashtags">#VéhiculesNeufs #Été2026 #EssaiGratuit #OmniaCars #AutoBelgique</td>
+        </tr>
+        <tr>
+          <td class="col-num">73</td>
+          <td class="col-date"><span class="date-day">Jeu 18 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 Avant vacances</span></td>
+          <td class="col-format"><span class="format-pill">Carrousel</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🔧 Checklist avant les grandes vacances : votre SAV fait le tour complet ! Niveau d'huile ✔️ — Freins ✔️ — Pression pneus ✔️ — Climatisation ✔️ — Courroie de distribution ✔️ — Éclairage ✔️. Un seul rendez-vous, et vous partez l'esprit libre. Réservez votre créneau dès maintenant — juillet arrive vite !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span></td>
+          <td class="col-hashtags hashtags">#SAV #Vacances2026 #CheckListVacances #EntretienAuto #Juillet</td>
+        </tr>
+        <tr>
+          <td class="col-num">74</td>
+          <td class="col-date"><span class="date-day">Sam 21 juin</span><div class="date-info">Fête Musique + Été 🎵☀️</div><span class="weekend-badge">🎵 événement</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Fête de la Musique</span></td>
+          <td class="col-format"><span class="format-pill">Reel / Story</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🎵 Bienvenue à l'été ! La Fête de la Musique résonne dans nos rues ce soir — et la meilleure playlist, c'est celle qu'on écoute au volant, fenêtres ouvertes. Nos véhicules avec système audio premium savent de quoi on parle 😎 Bon premier soir d'été à tous !</div>
+            <span class="accroche-italic">Post supplémentaire week-end — ton léger et festif</span>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#FêteMusiquer #PremierJourÉté #Été2026 #SoundSystem #OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S26 -->
+  <div class="week-group">
+    <div class="week-header"><span class="week-num">S26</span> 22 → 28 juin · Grands départs vacances</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">75</td>
+          <td class="col-date"><span class="date-day">Mar 23 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-sav">🔧 Départs</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🏖️ Les grands départs, c'est ce week-end ! Les routes belges et les axes vers la côte ou l'étranger seront chargés. Quelques conseils de nos équipes pour partir sereinement : charges bien réparties, pneus gonflés, pauses régulières toutes les 2h. Bon voyage à tous ceux qui s'apprêtent à partir !</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-sav">🔧 SAV</span> <span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#GrandsDéparts #Vacances2026 #Conseils #Sécurité #RoadTrip</td>
+        </tr>
+        <tr>
+          <td class="col-num">76</td>
+          <td class="col-date"><span class="date-day">Jeu 25 juin</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-vo">🏷️ GVotreAuto</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🚗 Vous partez en vacances — mais votre voiture vous inspire peu confiance ? Chez GVotreAuto, nos véhicules d'occasion sont rigoureusement contrôlés pour vous offrir sérénité sur la route. Et si ce passage en concession était l'occasion de tomber sur votre prochaine voiture ?</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-vo">🏷️ VO</span></td>
+          <td class="col-hashtags hashtags">#GVotreAuto #Occasion #Vacances #SérénitéRoute #OmniaCars</td>
+        </tr>
+        <tr>
+          <td class="col-num">77</td>
+          <td class="col-date"><span class="date-day">Ven 26 juin</span><div class="date-info">Fin S1 🌞</div></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 Clôture S1</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">🌞 L'été est là, les vacances commencent ! Toute l'équipe Groupe Omnia-Cars vous souhaite de belles aventures estivales. Six mois riches en rencontres, en projets et en belles routes partagées. On se retrouve à la rentrée — reposés et prêts pour de nouveaux projets automobiles ! À très bientôt 🚗❤️</div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Notoriété</span></td>
+          <td class="col-hashtags hashtags">#Été2026 #BonnesVacances #OmniaCars #GroupeOmniaCars #AutoBelgique</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /JUIN -->
+
+
+<!-- FOOTER NOTE -->
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-top:16px;font-size:12.5px;color:var(--text-secondary);line-height:1.7;">
+  <strong style="color:var(--text-primary);font-size:13px;">📋 Notes de production</strong><br><br>
+  <strong>Fréquence :</strong> 2–3 posts par semaine en semaine (idéalement mardi + jeudi ou mardi + jeudi + vendredi) · Posts week-end uniquement si événement particulier (signalés en fond orange).<br>
+  <strong>Ton :</strong> Chaleureux, accessible, sans jargon technique excessif · Vouvoiement · S'adresse aux particuliers en priorité, aux professionnels de façon inclusive.<br>
+  <strong>Marques :</strong> Pas de hiérarchie entre Alpine, Zeekr, Lancia, Alfa Romeo, Dacia, Renault, Opel, Citroën, DS, Leapmotor, Jeep, Peugeot, Omoda &amp; Jaecoo et GVotreAuto · Posts généraux représentant l'ensemble du groupe.<br>
+  <strong>Localisations :</strong> Binche · Mons · Tournai · Mouscron · Ath · Péruwelz — mentionnées de façon équitable selon les contextes, sans hiérarchie.<br>
+  <strong>Coyote :</strong> 1 mention par mois, aux moments opportuns (hiver, vacances, week-ends prolongés, grands départs).<br>
+  <strong>Promotions :</strong> Aucune promotion commerciale hors conditions salon (9–18 janvier) et prolongation février 2026.
+</div>
+
+</div><!-- /main-content -->
+
+
+<!-- ══ STATS AUTO-UPDATE ══ -->
+<script>
+/* ══════════════════════════════════════
+   STATS AUTO-UPDATE
+   Recalcule en temps réel :
+   - Publications : nb de <tr> dans tous les <tbody>
+   - Semaines : nb de .week-group
+   - Mois : nb de .month-section
+   - Coyote : nb de .tag-coy dans col-occasion
+   - Marques et Localisations : fixes (éditables manuellement)
+══════════════════════════════════════ */
+function updateStats() {
+  // Publications = toutes les lignes <tr> dans les <tbody> des tableaux de posts
+  const posts = document.querySelectorAll('.week-group tbody tr').length;
+
+  // Semaines = tous les .week-group
+  const semaines = document.querySelectorAll('.week-group').length;
+
+  // Mois = tous les .month-section
+  const mois = document.querySelectorAll('.month-section').length;
+
+  // Coyote = lignes dont la col-occasion contient un tag-coy
+  const coyote = document.querySelectorAll('.col-occasion .tag-coy').length;
+
+  // Update DOM avec animation flash si valeur change
+  setStatWithFlash('stat-posts', posts);
+  setStatWithFlash('stat-semaines', semaines);
+  setStatWithFlash('stat-coyote', coyote);
+
+  // Mois : on met à jour le label aussi
+  const moisEl = document.getElementById('stat-marques');
+  if (moisEl) {
+    // stat-marques stays fixed (14 brands) — but we add a live month count card
+    // Actually update it if we added a dynamic month card
+  }
+}
+
+function setStatWithFlash(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const current = parseInt(el.textContent, 10);
+  if (current === value) return;
+
+  el.textContent = value;
+  el.style.transition = 'none';
+  el.style.color = value > current ? '#27ae60' : '#c0392b';
+  el.style.transform = 'scale(1.15)';
+  setTimeout(() => {
+    el.style.transition = 'color 0.6s, transform 0.4s';
+    el.style.color = '';
+    el.style.transform = '';
+  }, 50);
+  setTimeout(() => {
+    el.style.transition = '';
+  }, 700);
+}
+
+// Observer qui surveille les ajouts/suppressions dans le DOM
+const statsObserver = new MutationObserver(() => {
+  updateStats();
+});
+
+// On observe le main-content pour tout changement de structure
+document.addEventListener('DOMContentLoaded', () => {
+  const main = document.querySelector('.main-content');
+  if (main) {
+    statsObserver.observe(main, { childList: true, subtree: true });
+  }
+  updateStats(); // calcul initial
+});
+
+// Recalcul aussi au démarrage (si DOMContentLoaded déjà passé)
+if (document.readyState !== 'loading') {
+  const main = document.querySelector('.main-content');
+  if (main) statsObserver.observe(main, { childList: true, subtree: true });
+  updateStats();
+}
+</script>
+<!-- ══════════════════════════════════════════
+     ÉDITEUR INTÉGRÉ v2 — Édition + Ajout mois/semaines/posts
+══════════════════════════════════════════ -->
+<style>
+  /* ── TOOLBAR FLOTTANT ── */
+  #editor-toolbar {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .toolbar-btn:hover { transform: translateY(-1px); }
+
+  #edit-mode-btn { background: #1a1916; color: white; }
+  #edit-mode-btn:hover { background: #333; }
+  #edit-mode-btn.active { background: #27ae60; }
+
+  #save-btn { background: #c0392b; color: white; display: none; }
+  #save-btn:hover { background: #a93226; }
+  #save-btn.show { display: flex; }
+
+  #add-month-btn { background: #8e44ad; color: white; display: none; }
+  #add-month-btn:hover { background: #7d3c98; }
+  #add-month-btn.show { display: flex; }
+
+  #editor-hint {
+    background: white;
+    border: 1px solid #e5e3de;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-size: 11.5px;
+    color: #6b6860;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    display: none;
+    max-width: 260px;
+    text-align: right;
+    line-height: 1.5;
+  }
+  #editor-hint.show { display: block; }
+
+  /* ── BANNIÈRE MODE ÉDITION ── */
+  #edit-banner {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #2980b9;
+    color: white;
+    text-align: center;
+    padding: 7px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 99999;
+    letter-spacing: 0.3px;
+  }
+  #edit-banner.show { display: block; }
+  body.edit-mode .page-header { top: 33px; }
+
+  /* ── ZONES ÉDITABLES ── */
+  body.edit-mode [contenteditable="true"] {
+    outline: 2px dashed #2980b9 !important;
+    outline-offset: 2px;
+    border-radius: 3px;
+    cursor: text;
+    min-height: 16px;
+  }
+  body.edit-mode [contenteditable="true"]:focus {
+    outline: 2px solid #2980b9 !important;
+    background: #f0f7ff !important;
+  }
+
+  /* ── BOUTONS INLINE (ajout post/semaine) ── */
+  .btn-add-post, .btn-add-week, .btn-delete-row {
+    display: none;
+    border: none;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    padding: 3px 9px;
+  }
+  body.edit-mode .btn-add-post,
+  body.edit-mode .btn-add-week,
+  body.edit-mode .btn-delete-row { display: inline-flex; align-items: center; gap: 4px; }
+
+  .btn-add-post { background: #dbeafe; color: #1e40af; }
+  .btn-add-post:hover { background: #1e40af; color: white; }
+
+  .btn-add-week { background: #f3e8ff; color: #6b21a8; }
+  .btn-add-week:hover { background: #6b21a8; color: white; }
+
+  .btn-delete-row { background: #fef2f2; color: #991b1b; }
+  .btn-delete-row:hover { background: #991b1b; color: white; }
+
+  /* Footer des week-groups en edit mode */
+  .week-group-footer {
+    display: none;
+    padding: 8px 14px;
+    border-top: 1px dashed #e5e3de;
+    background: #fafaf8;
+  }
+  body.edit-mode .week-group-footer { display: flex; align-items: center; gap: 8px; }
+
+  /* Footer des month-sections */
+  .month-footer {
+    display: none;
+    padding: 10px 14px;
+    margin-top: 4px;
+  }
+  body.edit-mode .month-footer { display: flex; align-items: center; gap: 8px; }
+
+  /* Bouton supprimer sur les lignes */
+  .row-actions {
+    display: none;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  body.edit-mode .row-actions { display: flex; }
+
+  /* ── MODAL ── */
+  #modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+  }
+  #modal-overlay.show { display: flex; }
+  #modal-box {
+    background: white;
+    border-radius: 10px;
+    padding: 28px 32px;
+    max-width: 560px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    font-family: 'DM Sans', sans-serif;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  #modal-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #1a1916;
+  }
+  .modal-field { margin-bottom: 14px; }
+  .modal-field label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #6b6860;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  .modal-field input,
+  .modal-field select,
+  .modal-field textarea {
+    width: 100%;
+    border: 1px solid #e5e3de;
+    border-radius: 6px;
+    padding: 8px 11px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: #1a1916;
+    background: #fafaf8;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .modal-field input:focus,
+  .modal-field select:focus,
+  .modal-field textarea:focus { border-color: #2980b9; background: #f0f7ff; }
+  .modal-field textarea { min-height: 90px; resize: vertical; }
+  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+  .modal-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 9px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .modal-btn-primary { background: #1a1916; color: white; }
+  .modal-btn-primary:hover { background: #333; }
+  .modal-btn-cancel { background: #f1f0ed; color: #6b6860; }
+  .modal-btn-cancel:hover { background: #e5e3de; }
+
+  /* TAG SELECTOR in modal */
+  .tag-selector { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag-option {
+    display: inline-flex; align-items: center; gap: 4px;
+    border-radius: 4px; padding: 3px 9px;
+    font-size: 11px; font-weight: 500;
+    cursor: pointer; border: 2px solid transparent;
+    transition: all 0.12s;
+  }
+  .tag-option:hover { opacity: 0.85; }
+  .tag-option.selected { border-color: #1a1916; }
+  .tag-option.tag-vn { background: #dbeafe; color: #1e40af; }
+  .tag-option.tag-sav { background: #dcfce7; color: #166534; }
+  .tag-option.tag-vo { background: #fef9c3; color: #854d0e; }
+  .tag-option.tag-eng { background: #f3e8ff; color: #6b21a8; }
+  .tag-option.tag-loc { background: #ffe4e6; color: #9f1239; }
+  .tag-option.tag-pro { background: #e0f2fe; color: #0c4a6e; }
+  .tag-option.tag-env { background: #d1fae5; color: #064e3b; }
+  .tag-option.tag-fun { background: #fff7ed; color: #c2410c; }
+  .tag-option.tag-coy { background: #fdf2f8; color: #86198f; }
+
+  /* ── TOAST ── */
+  #toast {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    background: #1a1916;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 99999;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.25s;
+    pointer-events: none;
+  }
+  #toast.show { transform: translateY(0); opacity: 1; }
+</style>
+
+<!-- TOOLBAR -->
+<div id="editor-toolbar">
+  <div id="editor-hint">✏️ Cliquez sur un texte pour modifier<br>Utilisez les boutons <strong>+</strong> pour ajouter</div>
+  <button id="save-btn" class="toolbar-btn" onclick="saveFile()">💾 Télécharger les modifications</button>
+  <button id="add-month-btn" class="toolbar-btn" onclick="openAddMonthModal()">📅 Ajouter un mois</button>
+  <button id="edit-mode-btn" class="toolbar-btn" onclick="toggleEditMode()">✏️ Mode édition</button>
+</div>
+
+<!-- BANNIÈRE -->
+<div id="edit-banner">✏️ MODE ÉDITION — Cliquez sur n'importe quel texte pour le modifier · Utilisez les boutons + pour ajouter des posts, semaines ou mois</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ══ MODAL AJOUT POST ══ -->
+<div id="modal-overlay">
+  <div id="modal-box">
+    <h2 id="modal-title">➕ Nouveau post</h2>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label>Numéro</label>
+        <input type="text" id="f-num" placeholder="ex: 78">
+      </div>
+      <div class="modal-field">
+        <label>Date</label>
+        <input type="text" id="f-date" placeholder="ex: Mar 7 juil.">
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Note de date (optionnel)</label>
+      <input type="text" id="f-date-info" placeholder="ex: Fête nationale">
+    </div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label>Réseau</label>
+        <select id="f-reseau">
+          <option value="fbig">FB + IG</option>
+          <option value="fb">FB seulement</option>
+          <option value="ig">IG seulement</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label>Format</label>
+        <select id="f-format">
+          <option>Post photo</option>
+          <option>Carrousel</option>
+          <option>Reel / Story</option>
+          <option>Story</option>
+          <option>Vidéo</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Thème / Occasion</label>
+      <div class="tag-selector" id="tag-selector-occasion">
+        <span class="tag-option tag-vn" onclick="toggleTag(this)">🚗 VN</span>
+        <span class="tag-option tag-sav" onclick="toggleTag(this)">🔧 SAV</span>
+        <span class="tag-option tag-vo" onclick="toggleTag(this)">🏷️ GVotreAuto</span>
+        <span class="tag-option tag-eng" onclick="toggleTag(this)">💬 Engagement</span>
+        <span class="tag-option tag-loc" onclick="toggleTag(this)">📍 Local</span>
+        <span class="tag-option tag-pro" onclick="toggleTag(this)">💼 Pro / Flotte</span>
+        <span class="tag-option tag-env" onclick="toggleTag(this)">🌿 Environnement</span>
+        <span class="tag-option tag-fun" onclick="toggleTag(this)">💡 Fun Fact</span>
+        <span class="tag-option tag-coy" onclick="toggleTag(this)">🛡️ Coyote</span>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Accroche / Contenu</label>
+      <textarea id="f-accroche" placeholder="Rédigez votre accroche ici…"></textarea>
+    </div>
+    <div class="modal-field">
+      <label>Note de production (optionnel)</label>
+      <input type="text" id="f-note" placeholder="ex: Carrousel : 3 slides">
+    </div>
+    <div class="modal-field">
+      <label>Objectif</label>
+      <div class="tag-selector" id="tag-selector-objectif">
+        <span class="tag-option tag-vn" onclick="toggleTag(this,'obj')">🚗 Vente VN</span>
+        <span class="tag-option tag-sav" onclick="toggleTag(this,'obj')">🔧 SAV</span>
+        <span class="tag-option tag-vo" onclick="toggleTag(this,'obj')">🏷️ VO</span>
+        <span class="tag-option tag-eng" onclick="toggleTag(this,'obj')">💬 Engagement</span>
+        <span class="tag-option tag-loc" onclick="toggleTag(this,'obj')">📍 Local</span>
+        <span class="tag-option tag-pro" onclick="toggleTag(this,'obj')">💼 Pro / VN</span>
+        <span class="tag-option tag-env" onclick="toggleTag(this,'obj')">🌿 Environnement</span>
+        <span class="tag-option tag-fun" onclick="toggleTag(this,'obj')">💡 Fun Fact</span>
+        <span class="tag-option tag-coy" onclick="toggleTag(this,'obj')">🛡️ Coyote</span>
+        <span class="tag-option tag-eng" onclick="toggleTag(this,'obj')">💬 Notoriété</span>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Hashtags</label>
+      <input type="text" id="f-hashtags" placeholder="#OmniaCars #Auto #Belgique">
+    </div>
+    <div id="week-modal-fields" style="display:none">
+      <hr style="border:none;border-top:1px solid #e5e3de;margin:16px 0">
+      <h2 id="week-modal-title" style="font-size:15px;margin-bottom:14px;">📅 Nouvelle semaine</h2>
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>N° de semaine</label>
+          <input type="text" id="f-week-num" placeholder="ex: S27">
+        </div>
+        <div class="modal-field">
+          <label>Période</label>
+          <input type="text" id="f-week-period" placeholder="ex: 6 → 12 juillet">
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Événements de la semaine</label>
+        <input type="text" id="f-week-events" placeholder="ex: Fête nationale (14 juil.)">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-cancel" onclick="closeModal()">Annuler</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmModal()">Ajouter ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL AJOUT MOIS ══ -->
+<div id="month-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100000;align-items:center;justify-content:center;">
+  <div id="month-modal-box" style="background:white;border-radius:10px;padding:28px 32px;max-width:480px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.25);font-family:'DM Sans',sans-serif;">
+    <h2 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:18px;color:#1a1916;">📅 Nouveau mois</h2>
+    <div class="modal-field">
+      <label>Nom du mois</label>
+      <input type="text" id="m-nom" placeholder="ex: Juillet 2026">
+    </div>
+    <div class="modal-field">
+      <label>Sous-titre / Événements clés</label>
+      <input type="text" id="m-subtitle" placeholder="ex: Vacances d'été · Fête nationale (14 juil.)">
+    </div>
+    <div class="modal-field">
+      <label>Emoji icône</label>
+      <input type="text" id="m-emoji" placeholder="ex: ☀️" style="max-width:80px">
+    </div>
+    <div class="modal-field">
+      <label>Couleur de l'icône (fond)</label>
+      <input type="color" id="m-color" value="#fef9c3" style="width:48px;height:36px;border:1px solid #e5e3de;border-radius:6px;padding:2px;cursor:pointer">
+    </div>
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-cancel" onclick="closeMonthModal()">Annuler</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmAddMonth()">Créer le mois ✓</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ══════════════════════════════════════
+     STATE
+  ══════════════════════════════════════ */
+  let editMode = false;
+  let hasChanges = false;
+  let _modalCallback = null;
+  let _selectedOccasionTags = [];
+  let _selectedObjectifTags = [];
+  let _targetTbody = null;
+  let _targetMonthSection = null;
+
+  /* ══════════════════════════════════════
+     EDIT MODE
+  ══════════════════════════════════════ */
+  const EDITABLE_SELECTORS = [
+    '.accroche-text', '.hashtags', '.date-day', '.date-info',
+    '.accroche-italic', '.stat-card-value', '.stat-card-label'
+  ];
+
+  function toggleEditMode() {
+    editMode = !editMode;
+    const btn = document.getElementById('edit-mode-btn');
+    const banner = document.getElementById('edit-banner');
+    const hint = document.getElementById('editor-hint');
+    const addMonthBtn = document.getElementById('add-month-btn');
+
+    if (editMode) {
+      document.body.classList.add('edit-mode');
+      btn.textContent = '✅ Quitter l\'édition';
+      btn.classList.add('active');
+      banner.classList.add('show');
+      hint.classList.add('show');
+      addMonthBtn.classList.add('show');
+      enableEditing();
+      injectInlineButtons();
+    } else {
+      document.body.classList.remove('edit-mode');
+      btn.textContent = '✏️ Mode édition';
+      btn.classList.remove('active');
+      banner.classList.remove('show');
+      hint.classList.remove('show');
+      addMonthBtn.classList.remove('show');
+      disableEditing();
+    }
+    if (hasChanges) document.getElementById('save-btn').classList.add('show');
+  }
+
+  function enableEditing() {
+    EDITABLE_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+        el.setAttribute('spellcheck', 'false');
+        el.addEventListener('input', markChanged, { once: false });
+      });
+    });
+    document.querySelectorAll('.week-header').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('spellcheck', 'false');
+      const badge = el.querySelector('.week-num');
+      if (badge) badge.setAttribute('contenteditable', 'false');
+      el.addEventListener('input', markChanged);
+    });
+    document.querySelectorAll('.month-header').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('spellcheck', 'false');
+      const icon = el.querySelector('.month-icon');
+      if (icon) icon.setAttribute('contenteditable', 'false');
+      el.addEventListener('input', markChanged);
+    });
+  }
+
+  function disableEditing() {
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+      el.setAttribute('contenteditable', 'false');
+    });
+  }
+
+  function markChanged() {
+    hasChanges = true;
+    document.getElementById('save-btn').classList.add('show');
+  }
+
+  /* ══════════════════════════════════════
+     INJECT INLINE ADD BUTTONS
+  ══════════════════════════════════════ */
+  function injectInlineButtons() {
+    // Add "+" post button at the bottom of each week-group (once)
+    document.querySelectorAll('.week-group').forEach(wg => {
+      if (wg.querySelector('.week-group-footer')) return;
+      const footer = document.createElement('div');
+      footer.className = 'week-group-footer';
+      footer.innerHTML = `<button class="btn-add-post" onclick="openAddPostModal(this)">+ Ajouter un post</button>`;
+      wg.appendChild(footer);
+    });
+
+    // Add "+ Semaine" button at the bottom of each month-section (once)
+    document.querySelectorAll('.month-section').forEach(ms => {
+      if (ms.querySelector('.month-footer')) return;
+      const footer = document.createElement('div');
+      footer.className = 'month-footer';
+      footer.innerHTML = `<button class="btn-add-week" onclick="openAddWeekModal(this)">+ Ajouter une semaine</button>`;
+      ms.appendChild(footer);
+    });
+
+    // Add delete button on each row (once)
+    document.querySelectorAll('tbody tr').forEach(tr => {
+      const accrocheCell = tr.querySelector('.col-accroche');
+      if (!accrocheCell || accrocheCell.querySelector('.row-actions')) return;
+      const actions = document.createElement('div');
+      actions.className = 'row-actions';
+      actions.innerHTML = `<button class="btn-delete-row" onclick="deleteRow(this)" title="Supprimer ce post">🗑 Supprimer</button>`;
+      accrocheCell.appendChild(actions);
+    });
+  }
+
+  /* ══════════════════════════════════════
+     DELETE ROW
+  ══════════════════════════════════════ */
+  function deleteRow(btn) {
+    const tr = btn.closest('tr');
+    if (!confirm('Supprimer ce post ?')) return;
+    tr.remove();
+    markChanged();
+    if (typeof updateStats === 'function') updateStats();
+    showToast('Post supprimé');
+  }
+
+  /* ══════════════════════════════════════
+     TAG SELECTOR
+  ══════════════════════════════════════ */
+  function toggleTag(el, group) {
+    el.classList.toggle('selected');
+  }
+
+  function getSelectedTags(containerId) {
+    return Array.from(document.querySelectorAll(`#${containerId} .tag-option.selected`));
+  }
+
+  function resetTags() {
+    document.querySelectorAll('.tag-option.selected').forEach(t => t.classList.remove('selected'));
+  }
+
+  /* ══════════════════════════════════════
+     MODAL OPEN / CLOSE
+  ══════════════════════════════════════ */
+  let _modalMode = 'post'; // 'post' or 'week+post'
+
+  function openAddPostModal(btn) {
+    _targetTbody = btn.closest('.week-group').querySelector('tbody');
+    _modalMode = 'post';
+    document.getElementById('modal-title').textContent = '➕ Nouveau post';
+    document.getElementById('week-modal-fields').style.display = 'none';
+    resetForm();
+    resetTags();
+    document.getElementById('modal-overlay').classList.add('show');
+  }
+
+  function openAddWeekModal(btn) {
+    _targetMonthSection = btn.closest('.month-section');
+    _modalMode = 'week+post';
+    document.getElementById('modal-title').textContent = '➕ Nouvelle semaine + premier post';
+    document.getElementById('week-modal-fields').style.display = 'block';
+    document.getElementById('week-modal-title').textContent = '📅 Détails de la semaine';
+    resetForm();
+    resetTags();
+    document.getElementById('modal-overlay').classList.add('show');
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('show');
+  }
+
+  function resetForm() {
+    ['f-num','f-date','f-date-info','f-accroche','f-note','f-hashtags','f-week-num','f-week-period','f-week-events'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    document.getElementById('f-reseau').value = 'fbig';
+    document.getElementById('f-format').value = 'Post photo';
+  }
+
+  /* ══════════════════════════════════════
+     BUILD HTML FROM FORM
+  ══════════════════════════════════════ */
+  function buildRowHTML() {
+    const num = document.getElementById('f-num').value.trim() || '—';
+    const date = document.getElementById('f-date').value.trim() || 'Date à définir';
+    const dateInfo = document.getElementById('f-date-info').value.trim();
+    const reseau = document.getElementById('f-reseau').value;
+    const format = document.getElementById('f-format').value;
+    const accroche = document.getElementById('f-accroche').value.trim() || '…';
+    const note = document.getElementById('f-note').value.trim();
+    const hashtags = document.getElementById('f-hashtags').value.trim() || '#OmniaCars';
+
+    const reseauMap = { fbig: 'FB + IG', fb: 'FB', ig: 'IG' };
+    const reseauLabel = reseauMap[reseau] || 'FB + IG';
+
+    // Occasion tags
+    const occTags = getSelectedTags('tag-selector-occasion');
+    const occHTML = occTags.length
+      ? occTags.map(t => `<span class="tag ${getTagClass(t.textContent)}">${t.textContent}</span>`).join(' ')
+      : '<span class="tag tag-eng">💬 À définir</span>';
+
+    // Objectif tags
+    const objTags = getSelectedTags('tag-selector-objectif');
+    const objHTML = objTags.length
+      ? objTags.map(t => `<span class="tag ${getTagClass(t.textContent)}">${t.textContent}</span>`).join(' ')
+      : '<span class="tag tag-eng">💬 À définir</span>';
+
+    const dateInfoHTML = dateInfo ? `<div class="date-info">${dateInfo}</div>` : '';
+    const noteHTML = note ? `<span class="accroche-italic">${note}</span>` : '';
+
+    return `<tr>
+          <td class="col-num">${num}</td>
+          <td class="col-date"><span class="date-day">${date}</span>${dateInfoHTML}</td>
+          <td class="col-reseau"><span class="reseau-tag ${reseau}">${reseauLabel}</span></td>
+          <td class="col-occasion">${occHTML}</td>
+          <td class="col-format"><span class="format-pill">${format}</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">${accroche}</div>
+            ${noteHTML}
+            <div class="row-actions"><button class="btn-delete-row" onclick="deleteRow(this)" title="Supprimer ce post">🗑 Supprimer</button></div>
+          </td>
+          <td class="col-objectif">${objHTML}</td>
+          <td class="col-hashtags hashtags">${hashtags}</td>
+        </tr>`;
+  }
+
+  function getTagClass(text) {
+    if (text.includes('VN') || text.includes('Vente') || text.includes('Essai') || text.includes('Printemps') || text.includes('Pâques') || text.includes('Été')) return 'tag-vn';
+    if (text.includes('SAV') || text.includes('Entretien') || text.includes('pneus') || text.includes('Checklist')) return 'tag-sav';
+    if (text.includes('GVotre') || text.includes('VO') || text.includes('Occasion')) return 'tag-vo';
+    if (text.includes('Engagement') || text.includes('Notoriété') || text.includes('💬')) return 'tag-eng';
+    if (text.includes('Local') || text.includes('📍')) return 'tag-loc';
+    if (text.includes('Pro') || text.includes('Flotte') || text.includes('💼')) return 'tag-pro';
+    if (text.includes('Environnement') || text.includes('🌿')) return 'tag-env';
+    if (text.includes('Fun') || text.includes('💡')) return 'tag-fun';
+    if (text.includes('Coyote') || text.includes('🛡️')) return 'tag-coy';
+    return 'tag-eng';
+  }
+
+  function buildWeekGroupHTML(weekNum, period, events) {
+    const weekTitle = events ? `${weekNum} · ${period} · ${events}` : `${weekNum} · ${period}`;
+    return `<div class="week-group">
+    <div class="week-header"><span class="week-num" contenteditable="false">${weekNum}</span> ${period}${events ? ' · ' + events : ''}</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="week-group-footer"><button class="btn-add-post" onclick="openAddPostModal(this)">+ Ajouter un post</button></div>
+  </div>`;
+  }
+
+  /* ══════════════════════════════════════
+     CONFIRM MODAL
+  ══════════════════════════════════════ */
+  function confirmModal() {
+    if (_modalMode === 'post') {
+      // Add post to existing week
+      const rowHTML = buildRowHTML();
+      _targetTbody.insertAdjacentHTML('beforeend', rowHTML);
+      // Re-enable editing on new cells
+      _targetTbody.querySelectorAll('tr:last-child [contenteditable]').forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+      });
+      enableEditingOnNew(_targetTbody.querySelector('tr:last-child'));
+      markChanged();
+      if (typeof updateStats === 'function') updateStats();
+      showToast('✅ Post ajouté !');
+    } else if (_modalMode === 'week+post') {
+      // Create new week group
+      const weekNum = document.getElementById('f-week-num').value.trim() || 'S?';
+      const period = document.getElementById('f-week-period').value.trim() || 'À définir';
+      const events = document.getElementById('f-week-events').value.trim();
+      const weekHTML = buildWeekGroupHTML(weekNum, period, events);
+
+      // Insert before the month-footer
+      const monthFooter = _targetMonthSection.querySelector('.month-footer');
+      monthFooter.insertAdjacentHTML('beforebegin', weekHTML);
+
+      // Now add the post to that new week's tbody
+      const newWeek = monthFooter.previousElementSibling;
+      const tbody = newWeek.querySelector('tbody');
+      _targetTbody = tbody;
+      const rowHTML = buildRowHTML();
+      tbody.insertAdjacentHTML('beforeend', rowHTML);
+
+      enableEditingOnNew(newWeek);
+      markChanged();
+      if (typeof updateStats === 'function') updateStats();
+      showToast('✅ Semaine + post ajoutés !');
+    }
+    closeModal();
+  }
+
+  function enableEditingOnNew(container) {
+    EDITABLE_SELECTORS.forEach(sel => {
+      container.querySelectorAll(sel).forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+        el.setAttribute('spellcheck', 'false');
+        el.addEventListener('input', markChanged);
+      });
+    });
+    container.querySelectorAll('.week-header').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('spellcheck', 'false');
+      const badge = el.querySelector('.week-num');
+      if (badge) badge.setAttribute('contenteditable', 'false');
+      el.addEventListener('input', markChanged);
+    });
+  }
+
+  /* ══════════════════════════════════════
+     ADD MONTH
+  ══════════════════════════════════════ */
+  function openAddMonthModal() {
+    document.getElementById('month-modal-overlay').style.display = 'flex';
+  }
+  function closeMonthModal() {
+    document.getElementById('month-modal-overlay').style.display = 'none';
+  }
+
+  function confirmAddMonth() {
+    const nom = document.getElementById('m-nom').value.trim() || 'Nouveau mois';
+    const subtitle = document.getElementById('m-subtitle').value.trim();
+    const emoji = document.getElementById('m-emoji').value.trim() || '📅';
+    const color = document.getElementById('m-color').value || '#fef9c3';
+
+    const monthTitle = subtitle ? `${nom} · ${subtitle}` : nom;
+
+    const monthHTML = `
+<div class="month-section">
+  <div class="month-header">
+    <span class="month-icon" style="background:${color};">${emoji}</span>
+    ${monthTitle}
+  </div>
+  <div class="week-group">
+    <div class="week-header"><span class="week-num" contenteditable="false">S??</span> Semaine à définir</div>
+    <table>
+      <thead><tr>
+        <th class="col-num">#</th><th class="col-date">Date</th><th class="col-reseau">Réseau</th>
+        <th class="col-occasion">Thème / Occasion</th><th class="col-format">Format</th>
+        <th class="col-accroche">Accroche / Contenu</th><th class="col-objectif">Objectif</th>
+        <th class="col-hashtags">Hashtags suggérés</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-num">—</td>
+          <td class="col-date"><span class="date-day">Date à définir</span></td>
+          <td class="col-reseau"><span class="reseau-tag fbig">FB + IG</span></td>
+          <td class="col-occasion"><span class="tag tag-eng">💬 À définir</span></td>
+          <td class="col-format"><span class="format-pill">Post photo</span></td>
+          <td class="col-accroche">
+            <div class="accroche-text">Rédigez votre accroche ici…</div>
+            <div class="row-actions"><button class="btn-delete-row" onclick="deleteRow(this)">🗑 Supprimer</button></div>
+          </td>
+          <td class="col-objectif"><span class="tag tag-eng">💬 Engagement</span></td>
+          <td class="col-hashtags hashtags">#OmniaCars</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="week-group-footer"><button class="btn-add-post" onclick="openAddPostModal(this)">+ Ajouter un post</button></div>
+  </div>
+  <div class="month-footer"><button class="btn-add-week" onclick="openAddWeekModal(this)">+ Ajouter une semaine</button></div>
+</div>`;
+
+    // Insert before the footer note (last child of main-content)
+    const mainContent = document.querySelector('.main-content');
+    const footerNote = mainContent.querySelector('div[style*="background:var(--surface)"]');
+    if (footerNote) {
+      footerNote.insertAdjacentHTML('beforebegin', monthHTML);
+    } else {
+      mainContent.insertAdjacentHTML('beforeend', monthHTML);
+    }
+
+    // Enable editing on new month
+    const newMonth = mainContent.querySelector('.month-section:last-of-type');
+    if (newMonth) enableEditingOnNew(newMonth);
+
+    closeMonthModal();
+    markChanged();
+    if (typeof updateStats === 'function') updateStats();
+    showToast(`✅ Mois "${nom}" créé !`);
+
+    // Clear fields
+    ['m-nom','m-subtitle','m-emoji'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('m-color').value = '#fef9c3';
+  }
+
+  /* ══════════════════════════════════════
+     SAVE FILE
+  ══════════════════════════════════════ */
+  function saveFile() {
+    const wasEditing = editMode;
+    if (wasEditing) {
+      disableEditing();
+      document.body.classList.remove('edit-mode');
+      document.getElementById('edit-banner').classList.remove('show');
+    }
+
+    const html = '<!DOCTYPE html>\n<html lang="fr">\n' + document.documentElement.innerHTML + '\n</html>';
+
+    if (wasEditing) {
+      enableEditing();
+      document.body.classList.add('edit-mode');
+      document.getElementById('edit-banner').classList.add('show');
+    }
+
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'calendrier-editorial-omnia-cars-2026-modifie.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    hasChanges = false;
+    showToast('✅ Fichier téléchargé !');
+  }
+
+  /* ══════════════════════════════════════
+     UTILS
+  ══════════════════════════════════════ */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      hasChanges ? saveFile() : showToast('ℹ️ Aucune modification à sauvegarder');
+    }
+    if (e.key === 'Escape') { closeModal(); closeMonthModal(); }
+  });
+
+  window.addEventListener('beforeunload', e => {
+    if (hasChanges) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  // Close modal on overlay click
+  document.getElementById('modal-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  });
+  document.getElementById('month-modal-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('month-modal-overlay')) closeMonthModal();
+  });
+</script>
+</body>
+</html>
